@@ -1,0 +1,41 @@
+ 事务的四大特性是什么
+答： 1)原子性(Atomic)：事务中各项操作，要么全做要么全不做，任何一项操
+作的失败都会导致整个事务的失败；
+2)一致性(Consistent)：事务结束后系统状态是一致的；
+3)隔离性(Isolated)：并发执行的事务彼此无法看到对方的中间状态；
+4)持久性(Durable)：事务完成后所做的改动都会被持久化，即使发生灾难性的
+失败。通过日志和同步备份可以在
+故障发生后重建数据。
+26. 常见的 HTTP 服务器和 Servlet 容器有哪些，二者的区别是什么？
+答：常见的 HTTP 服务器为 apache、 Nigix， 常见的 Servlet 容器为 tomcat、 jetty；
+Http 服务器只可以处理 Http 请求， Servlet 容器是一种程序服务器,实现了
+servlet 和 jsp,同时具有 Http 的功能
+常用的组件： request、 response、 out、 session、 application、 exception
+Jsp 指令包括哪些？
+答： taglib include page
+Http 请求的特点
+答：响应式、断开式、无状态协议
+描述 jsp 和 setvlet 的区别和联系
+答： JSP 在本质上就是 SERVLET,但是两者的创建方式不一样.Servlet 完全是
+JAVA 程序代码构成，擅长于流程控制和事务处理，通过 Servlet 来生成动态网页
+很不直观.JSP 由 HTML 代码和 JSP 标签构成，可以方便地编写动态网页.因此在
+实际应用中采用 Servlet 来控制业务流程，而采用 JSP 来生成动态网页
+Jsp 文件的执行过程
+答： (1) 客户端向服务器发送请求;
+(2) 服务器接受到客户端的请求后将 JSP 文件编译为.java 文件;
+(3) 将.java 文件并编译为 class 文件;
+(4) 执行该文件并响应给客户端;
+(5) 第二次加载则会找到对应的.class 文件直接调用执行,如果修改了 jsp 文件则
+还需要编译执行
+Servlet 的执行过程
+答： (1) 客户端发出请求
+(2) 容器(Tomcat)生成 request 和 response 对象
+(3) 容器根据 URL 找到合适的 Servlet 并分配线程
+(4) 访问 service 方法根据请求头决定调用 doGet 或 doPost凯盛软件 www.kaishengit.com
+(5) Servlet 使用响应对象通过容器给客户端做出响应,service 方法执行结束,访问
+对线程和 request,response 对象被销毁
+Servlet 生命周期
+答： (1) 实例化:web 容器创建 Servlet 的实例;
+(2) 初始化:web 容器调用 Servlet 的 init()
+(3) 服务:由 service()决定调用的是 doGet()还是 doPost();
+(4) 销毁:web 容器在销毁 Servlet 之前调用 destroy();
